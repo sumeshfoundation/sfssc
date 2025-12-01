@@ -30,9 +30,9 @@ export default function Footer() {
                 <div>
                     <h3 className="text-lg font-semibold mb-4 text-[#F0F6FF]">Contact</h3>
                     <ul className="space-y-2 text-sm text-[#E4ECFF]">
-                        <li>📍 Pune, Maharashtra, India</li>
-                        <li>📞 +91 9876543210</li>
-                        <li>📧 info@swarajcollege.edu</li>
+                        <li>📍 Bhashi (Mukhane), Taluka–Baglan, Nashik, Maharashtra, India</li>
+                        <li>📞 +91 9975380501 </li>
+                        <li>📧 info@sfssc.in</li>
                     </ul>
                 </div>
             </div>
