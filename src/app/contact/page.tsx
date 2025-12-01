@@ -27,8 +27,7 @@ export default function ContactPage() {
                         <div>
                             <h2 className="text-lg font-semibold text-blue-900 uppercase tracking-wide">Principal Office Contact</h2>
                             <p className="text-slate-700 leading-relaxed mt-2 flex flex-col gap-1 text-base">
-                                <span className="font-medium">📞 9270262952</span>
-                                <span className="font-medium">📞 9764462952</span>
+                                <span className="font-medium">📞 +91 9226983129</span>
                             </p>
                         </div>
 

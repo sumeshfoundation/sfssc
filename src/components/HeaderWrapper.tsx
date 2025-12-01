@@ -20,10 +20,15 @@ export default function HeaderWrapper() {
 
     return (
         <header className="fixed w-full top-0 z-50 transition-all duration-300 bg-white">
-            <div className={`${hideMini ? "h-0 opacity-0" : "h-auto opacity-100"} transition-all duration-300`}>
+            <div
+                className={`overflow-hidden transition-all duration-300 ease-in-out transform ${
+                    hideMini ? "opacity-0 -translate-y-5 h-0" : "opacity-100 translate-y-0 h-auto"
+                }`}
+            >
                 <TopMiniHeader />
+                <MainHeader />
             </div>
-            <MainHeader />
+
             <SubHeader />
         </header>
     );

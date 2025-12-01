@@ -31,13 +31,13 @@ export default function Footer() {
                     <h3 className="text-lg font-semibold mb-4 text-[#F0F6FF]">Contact</h3>
                     <ul className="space-y-2 text-sm text-[#E4ECFF]">
                         <li>📍 Bhashi (Mukhane), Taluka–Baglan, Nashik, Maharashtra, India</li>
-                        <li>📞 +91 9975380501 </li>
+                        <li>📞 +91 9226983129</li>
                         <li>📧 info@sfssc.in</li>
                     </ul>
                 </div>
             </div>
             <div className="w-full border-t border-[#5B8BFF] py-4 text-center text-sm text-[#D6E6FF]">
-                © {new Date().getFullYear()} Swaraj College. All rights reserved.
+                © {new Date().getFullYear()} sfssc.in. All rights reserved.
             </div>
         </footer>
     );

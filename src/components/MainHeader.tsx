@@ -25,11 +25,8 @@ export default function MainHeader() {
                     <span className="text-[22px] sm:text-[28px] font-extrabold text-[#262255] tracking-wide uppercase drop-shadow-sm">
                         SWARAJYA VARISHTHA MAHAVIDYALAY
                     </span>
-                    <span className="text-[10px] sm:text-[15px] text-[#645F7A] font-medium mt-[3px]">
-                        Bhashi (Mukhane), Taluka–Baglan, Nashik
-                    </span>
 
-                    <span className="text-[12px] sm:text-[18.5px] text-[#5A5770] font-medium tracking-wide mt-[2px] px-2 py-[2px] rounded bg-[#FFE5EF]/60">
+                    <span className="text-[12px] sm:text-[15.5px] text-[#5A5770] font-medium tracking-wide mt-[2px] px-2 py-[2px] rounded bg-[#FFE5EF]/60">
                         Affiliated to Kavikulaguru Kalidas Sanskrit University & Recognized by Govt. of Maharashtra
                     </span>
                 </div>
