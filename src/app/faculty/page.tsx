@@ -18,9 +18,9 @@ const faculty = [
 
 export default function FacultyPage() {
     return (
-        <div className="w-full max-w-7xl mx-auto px-4 bg-white pt-[110px] pb-20">
+        <div className="w-full max-w-7xl mx-auto px-4 bg-white pt-[90px] pb-10">
 
-            <h2 className="text-4xl font-semibold text-[#003E8A] text-center mb-12">College Faculty</h2>
+            <h2 className="text-4xl font-semibold text-[#003E8A] text-center mb-7">College Faculty</h2>
 
             <div className="bg-white border border-[#C8D6EA] shadow-xl rounded-2xl p-10 mb-16 flex flex-col items-center">
                 <Image

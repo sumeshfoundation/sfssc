@@ -1,46 +1,89 @@
 "use client"
+import React, {JSX} from "react"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
+import { useMemo } from "react"
+import { FiArrowRight, FiBookOpen } from "react-icons/fi"
 
-const courses = [
+type CourseType = "UG" | "Diploma" | string
+
+interface Course {
+    title: string
+    slug: string
+    type: CourseType
+}
+
+const COURSES: Course[] = [
     { title: "Bachelor of Arts (Civil Services)", slug: "ba-civil-services", type: "UG" },
     { title: "Bachelor of Business Administration", slug: "bba", type: "UG" },
-    { title: "Diploma in Library & Information Science (Granthalaya Vartashastra)", slug: "diploma-library-information-science", type: "Diploma" }
+    {
+        title: "Diploma in Library & Information Science (Granthalaya Vartashastra)",
+        slug: "diploma-library-information-science",
+        type: "Diploma",
+    },
 ]
 
-export default function Courses() {
-    const router = useRouter()
-
+function CourseCard({ course }: { course: Course }): JSX.Element {
     return (
-        <div className="w-full flex flex-col items-center justify-center py-10 max-w-6xl mx-auto px-4">
-            <h2 className="text-3xl font-semibold mb-4">Courses we Offer</h2>
-            <p className="text-gray-600 text-center mb-8 max-w-2xl text-sm md:text-base">
-                Explore our academic programs designed to build strong career foundations, professional competency and personal development.
+        <Link
+            href={`/courses/${course.slug}`}
+            className="group w-full bg-white rounded-2xl border border-gray-200 shadow-sm p-6 flex flex-col
+                 transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-xl
+                 focus:outline-none focus:ring-2 focus:ring-blue-300"
+            aria-label={`View details for ${course.title}`}
+        >
+            <div className="flex items-start justify-between">
+                <div className="flex items-center gap-2">
+                    <FiBookOpen className="text-blue-600 w-5 h-5" />
+                    <h3 className="text-lg md:text-xl font-semibold text-slate-800 leading-snug">
+                        {course.title}
+                    </h3>
+                </div>
+
+                {/* Type badge */}
+                <span className="ml-3 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold
+                                 bg-blue-50 text-blue-700 border border-blue-200">
+          {course.type}
+        </span>
+            </div>
+
+            <p className="mt-4 text-sm text-gray-600 leading-relaxed">
+                {course.type === "UG"
+                    ? "Undergraduate programme focused on strong academic foundations and career preparation."
+                    : "Shorter, skills-focused diploma designed for professional practice."}
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-                {courses.map((item, i) => (
-                    <Link
-                        key={i}
-                        href={`/courses/${item.slug}`}
-                        className="w-full bg-white rounded-xl border border-gray-200 hover:shadow-xl transition-all duration-300 p-6 text-lg font-medium cursor-pointer flex flex-col hover:-translate-y-1"
-                    >
-                        <span className="text-blue-700 font-semibold">{item.title}</span>
-                        <span className="mt-2 text-sm font-normal bg-gray-100 px-2 py-1 rounded-md w-fit">Course Type: {item.type}</span>
-                        <span className="mt-4 text-sm text-blue-600 underline">View Details</span>
-                    </Link>
-                ))}
-            </div>
+            <div className="mt-6 flex items-center justify-between">
+        <span className="text-sm font-medium text-blue-600 underline underline-offset-2
+                                 group-hover:decoration-2 group-hover:text-blue-700 transition">
+          View Details
+        </span>
 
-            <div className="mt-10 flex flex-col items-center">
-                <p className="text-gray-700 text-sm md:text-base mb-4">Have a question or want to apply?</p>
-                <button
-                    onClick={() => router.push("/contact")}
-                    className="bg-blue-600 hover:bg-blue-700 transition text-white px-8 py-3 rounded-lg text-sm md:text-base"
-                >
-                    Inquire Now
-                </button>
+                <FiArrowRight className="w-5 h-5 text-blue-500 transition-transform duration-300 group-hover:translate-x-1" />
             </div>
-        </div>
+        </Link>
+    )
+}
+
+export default function Courses(): JSX.Element {
+    const courses = useMemo<Course[]>(() => COURSES, [])
+
+    return (
+        <section className="w-full flex flex-col items-center justify-center py-16 max-w-7xl mx-auto px-4">
+            <header className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Courses We Offer</h2>
+                <p className="text-gray-600 max-w-2xl mx-auto mt-3 text-sm md:text-base leading-relaxed">
+                    Explore our academic programmes designed to build strong career foundations, professional competency, and
+                    personal development.
+                </p>
+            </header>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+                {courses.length === 0 ? (
+                    <div className="col-span-full text-center text-gray-500">No courses available at the moment.</div>
+                ) : (
+                    courses.map((item) => <CourseCard key={item.slug} course={item} />)
+                )}
+            </div>
+        </section>
     )
 }
